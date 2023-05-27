@@ -1,0 +1,7 @@
+rootProject.name = 'freshtyre'
+include(
+        "freshtyre-api:freshtyre-core",
+        "freshtyre-api:freshtyre-persistance",
+        "freshtyre-api:freshtyre-application"
+)
+
