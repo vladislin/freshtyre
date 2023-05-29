@@ -53,7 +53,7 @@ enum class TyreDiameter {
     fun getValue() = this.name.removePrefix("R")
 }
 
-enum class Season {
-    WINTER,
-    SUMMER
+enum class Season(val translate: String, val emoji: String) {
+    WINTER("Зима", "❄\uFE0F"),
+    SUMMER("Літо", "☀\uFE0F")
 }
