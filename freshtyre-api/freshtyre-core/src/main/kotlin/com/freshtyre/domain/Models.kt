@@ -18,42 +18,77 @@ data class Tyre(
     val dot: Int
 )
 
-enum class TyreWidth {
-    W_205,
-    W_215,
-    W_225,
-    W_235,
-    W_245,
-    W_285
+enum class TyreWidth(val value: Int) {
+    W_205(205),
+    W_215(215),
+    W_225(225),
+    W_235(235),
+    W_245(245),
+    W_285(285)
     ;
+
+    companion object {
+        fun fromValue(value: Int) = TyreWidth.values().firstOrNull() { it.value == value }
+    }
 
     fun getValue() = this.name.removePrefix("W_")
 }
 
-enum class TyreHeight {
-    H_45,
-    H_55,
-    H_60,
-    H_65
+enum class TyreHeight(val value: Int) {
+    H_45(45),
+    H_55(55),
+    H_60(60),
+    H_65(65)
     ;
+
+    companion object {
+        fun fromValue(value: Int) = TyreHeight.values().firstOrNull() { it.value == value }
+    }
 
     fun getValue() = this.name.removePrefix("H_")
 }
 
-enum class TyreDiameter {
-    R14,
-    R15,
-    R16,
-    R17,
-    R18,
-    R19,
-    R20
+enum class TyreDiameter(val value: Int) {
+    R14(14),
+    R15(15),
+    R16(16),
+    R17(17),
+    R18(18),
+    R19(19),
+    R20(20)
     ;
+
+    companion object {
+        fun fromValue(value: Int) = TyreDiameter.values().firstOrNull() { it.value == value }
+    }
 
     fun getValue() = this.name.removePrefix("R")
 }
 
-enum class Season(val translate: String, val emoji: String) {
-    WINTER("Зима", "❄\uFE0F"),
-    SUMMER("Літо", "☀\uFE0F")
+enum class Season(val value: String) {
+    WINTER("Зима"),
+    SUMMER("Літо")
+    ;
+
+    companion object {
+        fun fromValue(value: String): Season? = Season.values().firstOrNull() { it.value == value }
+    }
+}
+
+data class BotSearchRequest(
+    val id: Long,
+    val username: String,
+    var position: Position,
+    var season: Season? = null,
+    var width: TyreWidth? = null,
+    var height: TyreHeight? = null,
+    var diameter: TyreDiameter? = null
+)
+
+enum class Position {
+    INPUT_SEASON,
+    INPUT_WIDTH,
+    INPUT_HEIGHT,
+    INPUT_DIAMETER,
+    RESULTS
 }

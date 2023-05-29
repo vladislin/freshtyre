@@ -17,10 +17,7 @@ class TelegramBot(
 
     override fun onUpdateReceived(update: Update) {
         for (handler in handlers) {
-            if (handler.filter(update)) {
-                handler.handle(update, this)
-                break
-            }
+            handler.handle(update, this)
         }
     }
 }
