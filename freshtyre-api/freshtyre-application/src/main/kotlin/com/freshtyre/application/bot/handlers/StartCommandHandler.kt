@@ -20,8 +20,8 @@ class StartCommandHandler : Handler {
         if (update.message.hasText() && update.message.text == "/start") {
             val text = """
             Привіт <i>${update.message.from.firstName}</i>,
-            Я бот який допоможе знайти шини для тебе.
-            Нажміть кнопку "Підібрати", щоб розпочати пошук.
+            Я допоможу знайти шини для тебе.
+            Натисни кнопку "Підібрати", щоб розпочати пошук.
         """.trimIndent()
 
             val sendMessage = SendMessage.builder()

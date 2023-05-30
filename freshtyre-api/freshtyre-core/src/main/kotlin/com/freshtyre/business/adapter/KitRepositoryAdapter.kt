@@ -1,10 +1,10 @@
 package com.freshtyre.business.adapter
 
-import com.freshtyre.domain.Kit
+import com.freshtyre.domain.*
 
 interface KitRepositoryAdapter {
-    fun fetchKits(): List<Kit>
-    fun fetchKit(): Kit?
-    fun persistKit(): Kit
+    fun fetchKits(searchRequest: BotSearchRequest): List<Kit>
+    fun fetchKit(id: Long): Kit?
+    fun persistKit(kit: Kit): Kit
 
 }
