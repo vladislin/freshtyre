@@ -9,13 +9,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class PersistentKitRepositoryAdapter(private val kitRepository: KitRepository): KitRepositoryAdapter {
-    override fun fetchKits(searchRequest: BotSearchRequest): List<Kit> {
-        val kits = kitRepository.findBySeasonAndWidthAndHeightAndDiameter(
-            searchRequest.season!!,
-            searchRequest.width!!,
-            searchRequest.height!!,
-            searchRequest.diameter!!
-        )
+    override fun fetchKits(request: KitRequest): List<Kit> {
+        val kits = kitRepository.findBySeasonAndWidthAndHeightAndRadius(request.season, request.width, request.height, request.radius)
         return kits.map { it.toBusinessEntity() }
     }
 

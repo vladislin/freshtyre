@@ -11,7 +11,7 @@ fun KitEntity.toBusinessEntity(): Kit {
         model = this.model,
         width = this.width,
         height = this.height,
-        diameter = this.diameter,
+        radius = this.radius,
         price = this.price,
         season = this.season
     )
@@ -24,7 +24,7 @@ fun Kit.toEntity(): KitEntity {
         model = this.model,
         width = this.width,
         height = this.height,
-        diameter = this.diameter,
+        radius = this.radius,
         price = this.price,
         season = this.season
     )
@@ -62,7 +62,7 @@ class KitEntity(
     @Enumerated(EnumType.STRING)
     val height: TyreHeight,
     @Enumerated(EnumType.STRING)
-    val diameter: TyreDiameter,
+    val radius: TyreRadius,
     @Enumerated(EnumType.STRING)
     val season: Season,
     val price: Float

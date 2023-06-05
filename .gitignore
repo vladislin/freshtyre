@@ -35,3 +35,4 @@ out/
 
 ### VS Code ###
 .vscode/
+/freshtyre-api/freshtyre-application/src/main/resources/images/
