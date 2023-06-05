@@ -55,7 +55,7 @@ class SearchCommandHandler(
                     searchRequest.position = Position.NONE
                     sender.execute(prepareResults(searchRequest, update))
                 }
-                Position.NONE ->if (update.message.hasText()) {
+                Position.NONE ->if (update.message.hasText() && update.message.text.equals("/find")) {
                     cache.removeById(update.message.chatId)
                     cache.add(createNewBotUserSearch(update))
                     sender.execute(prepareSeasonChooseMessage(update))
