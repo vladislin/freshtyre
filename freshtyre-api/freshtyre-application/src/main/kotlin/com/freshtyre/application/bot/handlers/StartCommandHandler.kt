@@ -12,9 +12,9 @@ import org.telegram.telegrambots.meta.bots.AbsSender
 @Component
 class StartCommandHandler : Handler {
 
-//    override fun filter(update: Update): Boolean {
-//        return update.message.text == "/start" && update.message.isUserMessage
-//    }
+    override fun filter(update: Update): Boolean {
+        return update.hasMessage() && update.message.text == "/start" && update.message.isUserMessage
+    }
 
     override fun handle(update: Update, sender: AbsSender) {
         if (update.message.hasText() && update.message.text == "/start") {

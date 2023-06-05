@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.Update
 @Component
 class TelegramBot(
     private val props: TelegramBotProperties,
-    private val handlers: List<Handler>
+    private val handlers: List<Handler>,
 ): TelegramLongPollingBot() {
 
     override fun getBotToken() = props.token
@@ -17,7 +17,10 @@ class TelegramBot(
 
     override fun onUpdateReceived(update: Update) {
         for (handler in handlers) {
-            handler.handle(update, this)
+            if (handler.filter(update)) {
+                handler.handle(update, this)
+                break
+            }
         }
     }
 }

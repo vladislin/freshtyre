@@ -1,4 +1,4 @@
-package com.freshtyre.application.bot.cache
+package com.freshtyre.business.adapter
 
 interface Cache<T> {
     fun findById(id: Long): T?

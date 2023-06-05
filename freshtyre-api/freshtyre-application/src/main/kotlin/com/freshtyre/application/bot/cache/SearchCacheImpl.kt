@@ -1,5 +1,6 @@
 package com.freshtyre.application.bot.cache
 
+import com.freshtyre.business.adapter.Cache
 import com.freshtyre.domain.BotSearchRequest
 import org.springframework.stereotype.Component
 
